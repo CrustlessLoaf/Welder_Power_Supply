@@ -54,23 +54,23 @@ while(!Serial.available()){}
 startWeld = Serial.parseInt();
 
  while (startWeld == 1) {       //while the start value is found, start weld
-        	    int period = millis();
-                while(millis() - period <= weldTime)
-{                //while the timer is less than the weld time
+	int period = millis();
+	while(millis() - period <= weldTime)
+		{                //while the timer is less than the weld time
 
-                Serial.println("lol");
-                analogWrite(out1, 25.5);               //make out1 pulse with a 10% Duty
-                invertAnalogWrite(out2,25.5); //make out2 invert the signal being sent with 90% duty cycle (1-D)
-                input = analogRead(A0);                //read from rotary encoder connected to A0
-                output = computePI(input); 
-                analogWrite(out1, output);               //make out1 pulse with a 10% Duty
-                invertAnalogWrite(out2,output); //make out2 invert the signal being sent with 90% duty cycle (1-D)
-                startWeld = 0;
+                	Serial.println("lol");
+                	analogWrite(out1, 25.5);               //make out1 pulse with a 10% Duty
+                	invertAnalogWrite(out2,25.5); //make out2 invert the signal being sent with 90% duty cycle (1-D)
+                	input = analogRead(A0);                //read from rotary encoder connected to A0
+                	output = computePI(input); 
+                	analogWrite(out1, output);               //make out1 pulse with a 10% Duty
+                	invertAnalogWrite(out2,output); //make out2 invert the signal being sent with 90% duty cycle (1-D)
+                	startWeld = 0;
                 } 
           
-          weldTime = 0;
-           analogWrite(out1, 0);               //make out1 pulse with a 10% Duty
-                invertAnalogWrite(out2,0);
+    	weldTime = 0;
+	analogWrite(out1, 0);               //make out1 pulse with a 10% Duty
+   	invertAnalogWrite(out2,0);
              
-}
+	}
 }
